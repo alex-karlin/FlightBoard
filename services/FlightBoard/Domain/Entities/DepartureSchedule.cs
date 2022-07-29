@@ -8,6 +8,6 @@ public class DepartureSchedule {
     public Flight Flight { get; set; } = null!;
     public DateTime Scheduled { get; set; }
     public DateTime Estimated { get; set; }
-    public DateTime Actual { get; set; }
+    public DateTime? Actual { get; set; }
     public string Gate { get; set; } = null!;
 }
