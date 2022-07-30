@@ -3,6 +3,7 @@ using Api.Application.Flights.Models;
 using AutoMapper;
 using Domain.Abstractions;
 using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,7 @@ namespace Api.Controllers;
 
 [ApiController]
 [Route("api/airports")]
+[AllowAnonymous]
 public class AirportsController
 {
     private readonly ILogger<AirportsController> _logger;

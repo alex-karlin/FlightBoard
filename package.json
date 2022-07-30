@@ -15,11 +15,11 @@
     "scripts": {
         "init": "npm-run-all -l init:**",
         "init:dotnet6-sdk": "choco install dotnet-6.0-sdk -y",
-        "init:service": "cd ./services/FlightBoard && dotnet restore && dotnet tool restore",
-        "init:dotnet-ef": "dotnet tool install --global dotnet-ef",
-        "init:db": "cd ./services/FlightBoard/Api && dotnet ef database update",
+        "init:service": "cd ./projects/flight-board-service && dotnet restore && dotnet tool restore",
+        "init:dotnet-ef": "dotnet tool install --global dotnet-ef || exit 0",
+        "init:db": "cd ./projects/flight-board-service/Api && dotnet ef database update",
         "start": "npm-run-all -p start:**",
-        "start:service": "cd ./services/FlightBoard/Api && dotnet watch run",
+        "start:service": "cd ./projects/flight-board-service/Api && dotnet watch run",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "devDependencies": {

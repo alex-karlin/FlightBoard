@@ -3,9 +3,9 @@ Welcome to the Flight Board repository
 
 ## Components
 Flight Board is made up of the following components:
-1. <del>[Flight Board UI](clients/flight-board-ui)</del>
-2. [Flight Board Service](services/FlightBoard)
-3. <del>[Identity Service](services/Identity)</del>
+1. <del>[Flight Board UI](projects/flight-board-ui)</del>
+2. [Flight Board Service](projects/flight-board-service)
+3. <del>[Identity Service](projects/identity-service)</del>
 
 &ast; Flight Board UI and Identity Service will be implemented later  
 
@@ -23,7 +23,8 @@ Prerequisites:
    nvm use 16.16.0
    ```
    3. `npm install`
-   4. `npm run init`
+   4. `npm run init` - make sure you have a default instance of SQL Server installed locally, or else database migrations will fail and the application won't work properly 
+
 
 To run Flight Board solution you will only need to execute:
 1. `npm run start`
