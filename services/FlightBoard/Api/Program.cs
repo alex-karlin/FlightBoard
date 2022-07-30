@@ -1,15 +1,26 @@
+using System.Text.Json.Serialization;
+using Api;
 using DataAccess;
+using Domain.Abstractions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<FlightContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("FlightsDb")));
+
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IDatabase, Database>();
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 
