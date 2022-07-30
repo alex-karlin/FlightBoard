@@ -1,0 +1,107 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "flight-board": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/flight-board",
+      "sourceRoot": "projects/flight-board/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/flight-board",
+            "index": "projects/flight-board/src/index.html",
+            "main": "projects/flight-board/src/main.ts",
+            "polyfills": "projects/flight-board/src/polyfills.ts",
+            "tsConfig": "projects/flight-board/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/flight-board/src/favicon.ico",
+              "projects/flight-board/src/assets"
+            ],
+            "styles": [
+              "projects/flight-board/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/flight-board/src/environments/environment.ts",
+                  "with": "projects/flight-board/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "flight-board:build:production"
+            },
+            "development": {
+              "browserTarget": "flight-board:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "flight-board:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/flight-board/src/test.ts",
+            "polyfills": "projects/flight-board/src/polyfills.ts",
+            "tsConfig": "projects/flight-board/tsconfig.spec.json",
+            "karmaConfig": "projects/flight-board/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/flight-board/src/favicon.ico",
+              "projects/flight-board/src/assets"
+            ],
+            "styles": [
+              "projects/flight-board/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  }
+}
