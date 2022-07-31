@@ -6,6 +6,7 @@ const routes: Routes = [
     {
         path: 'airports',
         component: AirportListComponent,
+        pathMatch: 'full',
     },
 ];
 

@@ -1,1 +1,16 @@
-<p>airport works!</p>
+<div class="card shadow-sm align-items-center">
+    <img class="w-50" src="assets/airport.svg" aria-label="Airport" alt="Airport">
+    <div class="card-body">
+        <h5 class="card-title text-center">{{ airport.name }}</h5>
+        <p class="card-text">
+            {{ airport.address }}
+        </p>
+        <div class="d-flex justify-content-center">
+            <div class="btn-group">
+                <a [routerLink]="['/airports', airport.airportId, 'flights']" type="button" class="btn btn-sm btn-outline-secondary">
+                    View Departure Flights
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

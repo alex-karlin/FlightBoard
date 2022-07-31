@@ -20,7 +20,6 @@ import { HttpClientModule } from '@angular/common/http';
     imports: [
         BrowserModule,
         HttpClientModule,
-        AppRoutingModule,
         StoreModule.forRoot({
             airports: airportsReducer,
             flights: flightsReducer,
@@ -30,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
         EffectsModule.forRoot([AirportsEffects, FlightsEffects]),
         AirportsModule,
         FlightsModule,
+        AppRoutingModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

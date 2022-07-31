@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { Airport } from "../state";
 
 @Component({
-    selector: 'app-airport.ts',
+    selector: 'app-airport',
     templateUrl: './airport.component.html',
     styleUrls: ['./airport.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AirportComponent implements OnInit {
-    constructor() {}
-
-    ngOnInit(): void {}
+export class AirportComponent {
+    @Input()
+    public airport: Airport = null!;
 }

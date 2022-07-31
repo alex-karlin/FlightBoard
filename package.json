@@ -19,7 +19,7 @@
         "init:dotnet-ef": "dotnet tool install --global dotnet-ef || exit 0",
         "init:db": "cd ./projects/flight-board-service/Api && dotnet ef database update",
         "start": "npm-run-all -p start:**",
-        "start:service": "cd ./projects/flight-board-service/Api && dotnet watch run",
+        "start:service": "cd ./projects/flight-board-service/Api && dotnet watch run --launch-profile Api",
         "start:ui": "cd ./projects/flight-board-ui && npm run start",
         "test": "echo \"Error: no test specified\" && exit 1"
     },

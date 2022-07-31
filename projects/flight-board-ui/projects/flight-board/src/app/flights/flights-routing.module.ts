@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FlightListComponent } from './flight-list/flight-list.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+    {
+        path: 'airports/:id/flights',
+        component: FlightListComponent,
+        pathMatch: 'full',
+    },
+];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
