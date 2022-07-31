@@ -21,6 +21,10 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IDatabase, Database>();
 
 builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddCors(options =>
+    options.AddDefaultPolicy(policy =>
+        policy.WithOrigins(builder.Configuration["AllowedOrigins"].Split(";"))
+            .AllowAnyMethod()));
 
 var app = builder.Build();
 
@@ -31,7 +35,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseCors();
 
 app.UseAuthorization();
 
