@@ -1,1 +1,17 @@
-<p>flight-list works!</p>
+<div class="p-3">
+    <progress
+        class="w-100"
+        *ngIf="loading$ | async; else flights"
+        id="progress"
+        max="100"
+    ></progress>
+</div>
+<ng-template #flights>
+    <div *ngIf="(flights$ | async)?.length == 0; else flightList">No flights found!</div>
+    <ng-template #flightList>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            <app-flight *ngFor="let flight of flights$ | async" [flight]="flight">
+            </app-flight>
+        </div>
+    </ng-template>
+</ng-template>

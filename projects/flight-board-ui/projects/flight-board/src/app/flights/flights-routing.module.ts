@@ -4,7 +4,7 @@ import { FlightListComponent } from './flight-list/flight-list.component';
 
 const routes: Routes = [
     {
-        path: 'airports/:id/flights',
+        path: 'airports/:airportId/flights',
         component: FlightListComponent,
         pathMatch: 'full',
     },

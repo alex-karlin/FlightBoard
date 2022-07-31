@@ -1,1 +1,32 @@
-<p>flight works!</p>
+<div class="col">
+    <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">{{ flight.airlineName }}</h4>
+        </div>
+        <div class="card-body">
+            <h1 class="card-title pricing-card-title">
+                <small class="fw-light">{{ flight.flightNumber }}</small>
+            </h1>
+            <ul class="list-unstyled mt-3 mb-4">
+                <li>Destination: {{ flight.destination }}</li>
+                <li>
+                    Scheduled departure:
+                    {{ flight.scheduledDepartureTime | date: 'd/M/yy, h:mm a' }}
+                </li>
+                <li>
+                    Estimated time:
+                    {{ flight.estimatedDepartureTime | date: 'd/M/yy, h:mm a' }}
+                </li>
+                <li>Status: {{ flight.status }}</li>
+                <li>Gate: {{ flight.departureGate }}</li>
+            </ul>
+            <button
+                (click)="selectFlight()"
+                type="button"
+                class="w-100 btn btn-lg btn-outline-primary"
+            >
+                Select
+            </button>
+        </div>
+    </div>
+</div>

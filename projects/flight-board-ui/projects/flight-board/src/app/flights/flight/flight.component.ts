@@ -1,12 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Flight } from '../state';
 
 @Component({
     selector: 'app-flight',
     templateUrl: './flight.component.html',
     styleUrls: ['./flight.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FlightComponent implements OnInit {
-    constructor() {}
+export class FlightComponent {
+    @Input()
+    public flight: Flight = null!;
 
-    ngOnInit(): void {}
+    public selectFlight() {
+        alert('Flight selection is not implemented yet.');
+    }
 }

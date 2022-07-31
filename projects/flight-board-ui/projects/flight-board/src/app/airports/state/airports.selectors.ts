@@ -1,5 +1,4 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { RootState } from '../../state';
 import { AirportsState } from './airports.reducer';
 
 export const selectAirportsState = createFeatureSelector<AirportsState>('airports');

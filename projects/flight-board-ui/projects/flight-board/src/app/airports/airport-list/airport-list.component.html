@@ -12,9 +12,10 @@
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <div class="col" *ngFor="let airport of airports$ | async">
-                <app-airport [airport]="airport"></app-airport>
-            </div>
+            <app-airport
+                *ngFor="let airport of airports$ | async"
+                [airport]="airport"
+            ></app-airport>
         </div>
     </div>
 </div>

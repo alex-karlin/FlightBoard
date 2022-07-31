@@ -28,6 +28,7 @@ public class FlightProfileTests
             var result = _mapper.Map<DepartureSchedule, FlightOutputModel>(source);
 
             result.FlightId.Should().Be(source.FlightId);
+            result.FlightNumber.Should().Be(source.Flight.Number);
             result.AirlineName.Should().Be(source.Flight.Airline.Name);
             result.Destination.Should().Be(source.Flight.Destination.Name);
             result.ScheduledDepartureTime.Should().Be(source.Scheduled);

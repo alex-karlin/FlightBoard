@@ -9,6 +9,7 @@ public class FlightProfile : Profile
     public FlightProfile()
     {
         CreateMap<DepartureSchedule, FlightOutputModel>()
+            .ForMember(d => d.FlightNumber, o => o.MapFrom(s => s.Flight.Number))
             .ForMember(d => d.AirlineName, o => o.MapFrom(s => s.Flight.Airline.Name))
             .ForMember(d => d.Destination, o => o.MapFrom(s => s.Flight.Destination.Name))
             .ForMember(d => d.ScheduledDepartureTime, o => o.MapFrom(s => s.Scheduled))
