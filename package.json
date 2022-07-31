@@ -20,9 +20,11 @@
         "init:db": "cd ./projects/flight-board-service/Api && dotnet ef database update",
         "start": "npm-run-all -p start:**",
         "start:service": "cd ./projects/flight-board-service/Api && dotnet watch run",
+        "start:ui": "cd ./projects/flight-board-ui && npm run start",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "devDependencies": {
-        "npm-run-all": "^4.1.5"
+        "npm-run-all": "^4.1.5",
+        "prettier": "2.7.1"
     }
 }
