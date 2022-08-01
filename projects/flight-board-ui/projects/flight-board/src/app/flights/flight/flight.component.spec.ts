@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FlightComponent } from './flight.component';
+import { DataBuilder } from "../../shared";
+import { Flight } from "../state";
 
 describe('FlightComponent', () => {
     let component: FlightComponent;
@@ -13,6 +15,7 @@ describe('FlightComponent', () => {
 
         fixture = TestBed.createComponent(FlightComponent);
         component = fixture.componentInstance;
+        component.flight = new DataBuilder<Flight>().build();
         fixture.detectChanges();
     });
 

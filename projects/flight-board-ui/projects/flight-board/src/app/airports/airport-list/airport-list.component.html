@@ -1,21 +1,24 @@
-<section class="py-5 text-center container">
-    <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-light">Select Airport</h1>
-            <p class="lead text-muted">
-                Please select the airport below. Please note that only Christchurch Airport has
-                departure flights at the moment.
-            </p>
+<app-progress-bar *ngIf="loading$ | async; else airports"></app-progress-bar>
+<ng-template #airports>
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Select Airport</h1>
+                <p class="lead text-muted">
+                    Please select the airport below. Please note that only Christchurch Airport has
+                    departure flights at the moment.
+                </p>
+            </div>
+        </div>
+    </section>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <app-airport
+                    *ngFor="let airport of airports$ | async"
+                    [airport]="airport"
+                ></app-airport>
+            </div>
         </div>
     </div>
-</section>
-<div class="album py-5 bg-light">
-    <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <app-airport
-                *ngFor="let airport of airports$ | async"
-                [airport]="airport"
-            ></app-airport>
-        </div>
-    </div>
-</div>
+</ng-template>

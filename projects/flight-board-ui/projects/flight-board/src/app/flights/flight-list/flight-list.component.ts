@@ -17,21 +17,12 @@ export class FlightListComponent implements OnInit {
     constructor(private _store: Store<RootState>, private _route: ActivatedRoute) {}
 
     public ngOnInit() {
-        const airportIdResult = this.parseAirportId(this._route.snapshot.paramMap.get('airportId'));
-        if (airportIdResult.success) {
-            this._store.dispatch(loadFlightsAction({ airportId: airportIdResult.airportId }));
+        const airportId = parseInt(this._route.snapshot.paramMap.get('airportId') || '')
+        if (!isNaN(airportId)) {
+            this._store.dispatch(loadFlightsAction({ airportId }));
         }
 
         this.loading$ = this._store.pipe(select(selectFlightsLoading));
         this.flights$ = this._store.pipe(select(selectFlights));
-    }
-
-    private parseAirportId(airportIdParam: string | null) {
-        let success = false;
-        let airportId = -1;
-        if (Boolean(airportIdParam) && (airportId = parseInt(airportIdParam!)) !== NaN) {
-            success = true;
-        }
-        return { success, airportId };
     }
 }

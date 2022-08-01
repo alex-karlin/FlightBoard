@@ -13,11 +13,10 @@ export class AirportListComponent implements OnInit {
     public loading$: Observable<boolean> = null!;
     public airports$: Observable<Airport[] | null> = null!;
 
-    constructor(private _store: Store<RootState>) {
-        this._store.dispatch(loadAirportsAction());
-    }
+    constructor(private _store: Store<RootState>) {}
 
     public ngOnInit() {
+        this._store.dispatch(loadAirportsAction());
         this.loading$ = this._store.pipe(select(selectAirportsLoading));
         this.airports$ = this._store.pipe(select(selectAirports));
     }
